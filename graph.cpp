@@ -213,21 +213,4 @@ void printMatrix(std::vector<std::vector<float>> mat, int width = 10, int precis
     }
 }
 
-int main() {
-    int v;
-    cout<<"Input graph size. Edges will be randomly constructed\nnumber of nodes: ";
-    cin>>v;
-    cout<<"\n";
-    vector<vector<int>> adjList = vector<vector<int>>(v, vector<int>(0));
-    // how to randomly generate?
-    randomlyPopulate(adjList);
-    pageRankGraph g = pageRankGraph(v, adjList);
-    printMatrix(g.adjMat);
-    std::cout<<"enter damping factor: ";
-    float damp = 0, epsilon = 0;
-    std::cin>>damp;
-    std::cout<<"enter epsilon: ";
-    std::cin>>epsilon;
-    vector<float> res = pageRank( g, damp, epsilon);
-    return 0;
-}
+
