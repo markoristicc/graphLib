@@ -41,3 +41,9 @@ Anyways, to build the project, run something like the following from root proj d
 ```
 clang++ --std=c++17 -g testBench.cpp -o pr
 ```
+usage is:
+```
+./pr <damp> <epsilon>
+```
+It will perform a size scale test and an epsilon scaling test. If you want to change the graph size, or number of sampling iterations, then be a big boy/girl and change the code yourself.
+
