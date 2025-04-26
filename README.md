@@ -47,3 +47,32 @@ usage is:
 ```
 It will perform a size scale test and an epsilon scaling test. If you want to change the graph size, or number of sampling iterations, then be a big boy/girl and change the code yourself.
 
+## TODO's
+This could be done with Github issues, but like I said, I am lazy. 
+- Implement improved graph initialization, including
+    - customizable connectivity metric: average number of neighbors
+    - somehow figure out how to create structured graph
+        - be able to specify "cliquey-ness" or min-max flow
+    - more precise control over seeding for reproducability
+- Usability
+    - improve robustness of CLI (yknow, flags and vals)
+    - allow users to specify which test with which params to run (sensible defaults)
+    - would be great if we could specify which level of optimization to run too
+- Testing
+    - migrate from chrono to nanobench to improve consistency
+    - create visualization for multiSample distributions
+    - use visualizations to determine sensible sampling numbers (currently default to 30)
+    - microbenchmark each part of PR to see which operations eat the most time
+- Performance: we have literally done nothing so a lot of freebies
+    - loop rolling/unrolling/reordering to improve cache locality
+    - using openMP or Pthreads to create multiprocess workload and tile matmuls
+        - sync overhead may be too much for small workloads
+    - operator fusion, quantization
+    - sparse matrices.
+    - utilize Apple Metal library for GPU utilization (only should be done after exhausting CPU)
+    - mapReduce if applicable (shared mem system so doubtful)
+    - disabling random things that make CPU go BRRRRR
+        - setting high process priority
+        - idk disable errors and shit
+        - you tell me
+    
