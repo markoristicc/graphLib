@@ -10,7 +10,8 @@ I'll add more soon, however at the moment I'm really focused on pageRank.
 
 My first pass implementation of the pageRank algorithm has the following performance characteristics
 
-'''SIZE SCALE TEST
+```
+SIZE SCALE TEST
 Size: 128, Damp: 0.9, Epsilon: 0.01 PageRank takes an average time of: 1866270 nanoseconds, max time: 3313166, min time: 1394916
 Size: 256, Damp: 0.9, Epsilon: 0.01 PageRank takes an average time of: 4175091 nanoseconds, max time: 5024916, min time: 3974416
 Size: 512, Damp: 0.9, Epsilon: 0.01 PageRank takes an average time of: 14921890 nanoseconds, max time: 15233459, min time: 14823792
@@ -24,7 +25,7 @@ Size: 128, Damp: 0.9, Epsilon: 1e-05 PageRank takes an average time of: 2700689 
 Size: 128, Damp: 0.9, Epsilon: 1e-06 PageRank takes an average time of: 3479462 nanoseconds, max time: 3588625, min time: 3427500
 Size: 128, Damp: 0.9, Epsilon: 1e-07 PageRank takes an average time of: 3681094 nanoseconds, max time: 3784083, min time: 3626834
 Size: 128, Damp: 0.9, Epsilon: 1e-08 PageRank takes an average time of: 5073172 nanoseconds, max time: 5195583, min time: 5001000
-'''
+```
 
 These graphs' average number of outgoing connections per node was 3. 
 
@@ -37,4 +38,6 @@ which is not particularly exciting to me - the performance work is the fun stuff
 on the performance gains achieved by my speedups VS a naive implementation, so the performance work will have to wait :(
 
 Anyways, to build the project, run something like the following from root proj directory
-'''clang++ --std=c++17 -g testBench.cpp -o pr'''
+```
+clang++ --std=c++17 -g testBench.cpp -o pr
+```
