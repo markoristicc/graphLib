@@ -150,7 +150,7 @@ vector<float> vectorMatmul( vector<vector<float>> A, vector<float> v) {
     return res;
 };
 
-vector<float> pageRankGPT(vector<vector<float>> adj,
+vector<float> pageRankHelper(vector<vector<float>> adj,
                           float damp   = 0.85f,
                           float eps    = 1e-6f)
 {
@@ -174,17 +174,7 @@ vector<float> pageRankGPT(vector<vector<float>> adj,
 
 vector<float> pageRank( pageRankGraph& g, float damp, float epsilon) {
     //A is already initialized accordingly
-    return pageRankGPT( g.adjMat, damp, epsilon);
-    vector<float> r0 = vector<float>(g.v, 0.25);
-    vector<float> r1 = vector<float>(g.v, 0.5);
-    float d = damp; // not sure here what to do
-    vector<float> E = vector<float>(g.v, 0.25); // E and r0 are same initially
-    while( norml1( r1 - r0) > epsilon) {
-        r1 = vectorMatmul( g.adjMat, r0);
-        d = norml1(r0) + norml1(r1);
-        r1 = r1 + scalarVector(d, E);
-    }
-    return r1;
+    return pageRankHelper( g.adjMat, damp, epsilon);
 }
 
 void randomlyPopulate (vector<vector<int>> &adjList) {
